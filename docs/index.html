@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asteroids</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="javascript" href="./js/main.js">
 </head>
 <body>
     <header>
-        <h1>Asteroids</h1>
-        <nav id="navbar" class="navbar">
+        <h1 id="titulo">Asteroids</h1>
+        <button class=".hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="navbar" class=".navbar ul">
+            
             <ul>
                 <li>
-                 <a href="#Inicio">Inicio</a>
+                 <a href="#Inicio" class="inicio">Inicio</a>
                 </li>
                 <li>
                  <a href="#Historia">Historia</a>
@@ -28,7 +32,7 @@
     <main>
 <section id="Inicio">
     <h2>Inicio</h2>
-    <img >
+    <img src="./imagenes/AsteroidsPortrait.png">
     <script>
 
     </script>
@@ -39,9 +43,17 @@
 </section>
 <section id="Mecánicas"> 
     <h2>Mecánicas</h2>
+    <a>Presiona las flechas para avanzar en 8 direcciones, para disparar
+        proyectiles presionar "Z", al derribar asteroides se desprenderan pedazos
+        que te daran mas puntuacion, pero al chocar te inflingiran daño hasta perder,
+        El jugador cuenta con 5 vidas, al perderlas todas se acaba el juego y se reune 
+        la puntuación.
+    </a>
 </section>
 <section id="Acerca">
     <h2>Acerca</h2>
+    <a>Los creadores son...</a>
+    <h6>Hecho por victin :D</h6>
 </section>
     </main>
     <footer>
@@ -49,3 +61,9 @@
     </footer>
 </body>
 </html>
+<script>
+  function toggleMenu() {
+    const navbar = document.getElementById('navbar');
+    navbar.classList.toggle('active');
+  }
+</script>
