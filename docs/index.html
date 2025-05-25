@@ -1,69 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asteroids</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="javascript" href="./js/main.js">
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
     <header>
         <h1 id="titulo">Asteroids</h1>
-        <button class=".hamburger" onclick="toggleMenu()">☰</button>
-        <nav id="navbar" class=".navbar ul">
-            
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="navbar" class="navbar">
             <ul>
-                <li>
-                 <a href="#Inicio" class="inicio">Inicio</a>
-                </li>
-                <li>
-                 <a href="#Historia">Historia</a>
-                </li>
-                <li>
-                 <a href="#Mecánicas">Mecanicas</a>
-                </li>
-                <li>
-                 <a href="#Acerca">Acerca</a>
-                </li>
+                <li><a href="#Inicio" class="inicio">Inicio</a></li>
+                <li><a href="#Historia">Historia</a></li>
+                <li><a href="#Mecánicas">Mecánicas</a></li>
+                <li><a href="#Acerca">Acerca</a></li>
             </ul>
         </nav>
+        <button id="toggleDarkMode" class="darkmode-btn">🌓 Cambiar Modo</button>
+
     </header>
     <main>
-<section id="Inicio">
-    <h2>Inicio</h2>
-    <img src="./imagenes/AsteroidsPortrait.png">
-    <script>
-
-    </script>
-</section>
-<section id="Historia">
-    <h2>Historia</h2>
-    <a>Diseñado para las Arcade fue diseñado con vectores con un software llamado Quadrascan que es un sistema de refresco de vectores, este juego es en parte inspirado por otro llamado SpaceWar! que en parte era un juego de 2 jugadores y Asteroids es en escencia la experiencia para un solo jugador, al momento de desarrollar este juego estaba en desarrollo otro llamado Lunar Lander pero como este juego fue muy vendido pararon con su desarrollo, Gracias a este juego igual se puede hacer registro de las puntuaciones por lo que es un pionero en su epoca.</a>
-</section>
-<section id="Mecánicas"> 
-    <h2>Mecánicas</h2>
-    <a>Presiona las flechas para avanzar en 8 direcciones, para disparar
+        <section id="Inicio">
+            <h2>Inicio</h2>
+            <img src="./imagenes/AsteroidsPortrait.png" class="centered-img">
+            <!--PromptChatgpt-->
+            <button id="startBtn">Iniciar Juego</button>
+            <div id="ui">
+                <button id="restartBtn" style="display:none;">Reiniciar</button>
+                <div id="scoreTable"></div>
+            </div>
+            <!-- El canvas del juego se agrega desde JS -->
+        </section>
+        <section id="Historia">
+            <h2>Historia</h2>
+            <a>El juego fue diseñado por Lyle Rains y programado por 
+        Ed logg.
+        Diseñado para las Arcade fue diseñado con vectores con un software llamado
+        Quadrascan que es un sistema de refresco de vectores, este juego es en parte
+         inspirado por otro llamado SpaceWar! que en parte era un juego de 2 jugadores y
+          Asteroids es en escencia la experiencia para un solo jugador, al momento de desarrollar
+           este juego estaba en desarrollo otro llamado Lunar Lander pero como este juego fue muy
+            vendido pararon con su desarrollo, Gracias a este juego igual se puede hacer registro
+             de las puntuaciones por lo que es un pionero en su epoca.</a>
+             <img src="./imagenes/Edlogg.jpg" class="centered-img">
+             <a>Ed Logg</a>
+             <img src="./imagenes/lylerains.png" class="centered-img">
+             <a>Lyle Rains</a>
+        </section>
+        <section id="Mecánicas">
+            <h2>Mecánicas</h2>
+            <a>Presiona las flechas para avanzar en 8 direcciones, para disparar
         proyectiles presionar "Z", al derribar asteroides se desprenderan pedazos
         que te daran mas puntuacion, pero al chocar te inflingiran daño hasta perder,
         El jugador cuenta con 5 vidas, al perderlas todas se acaba el juego y se reune 
-        la puntuación.
-    </a>
-</section>
-<section id="Acerca">
-    <h2>Acerca</h2>
-    <a>Los creadores son...</a>
-    <h6>Hecho por victin :D</h6>
-</section>
-    </main>
-    <footer>
+        la puntuación.</a>
+        <img src="./imagenes/teclas-flecha-teclado-estilo-plano_78370-7798.png" class="centered-img">
+        <img src="./imagenes/teclaZ.png" class="centered-img">
+        </section>
+        <section id="Acerca">
+            <h2>Acerca</h2>
+            <a>En esta parte se encuentran links tanto para información adicional
+        del juego así como ports oficiales que se pueden comprar
+        para ser jugados en consolas modernas o pc, entre otros.</a>
+        <section>
+        <a href="https://en.wikipedia.org/wiki/Asteroids_(video_game)" target="_blank"> Pagina Wikipedia</a>
+         <img src="./imagenes/wikipedia.png" class="centered-img">         
+        <a href="https://atari.com/products/asteroids-recharged?srsltid=AfmBOorME2BhwNWV26CHhg1TaEKSRmMfFyXKutt7L2BXSBBsxGzGxy6_#play-now" target="_blank"> Pagina ofical Juego Renovado</a>
+        <img src="./imagenes/atari.png" class="centered-img">
+        </section>
+        </section>
         
+    </main>
+    <footer class="footer">
+        <h6 class="footer">Hecho por victin :D</h6>
+         <h6 class="footer">2025</h6>
+         <h4 href="#titulo">Regresar al inicio</h4>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
-<script>
-  function toggleMenu() {
-    const navbar = document.getElementById('navbar');
-    navbar.classList.toggle('active');
-  }
-</script>
