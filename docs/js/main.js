@@ -1,4 +1,12 @@
 /* prompt chatgpt */
+let joystick = {
+    active: false,
+    baseX: 0,
+    baseY: 0,
+    dx: 0,
+    dy: 0,
+};
+
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 800;
@@ -63,6 +71,13 @@ function wrapAround(obj) {
 
 function update() {
     if (!isPlaying || gameOver) return;
+
+    // Joystick: aplicar impulso si se mueve
+if (joystick.active) {
+    ship.thrust.x += joystick.dx * 0.2;
+    ship.thrust.y += joystick.dy * 0.2;
+}
+
 
     if (keys["ArrowLeft"]) ship.angle -= 0.05;
     if (keys["ArrowRight"]) ship.angle += 0.05;
@@ -257,4 +272,52 @@ darkToggleBtn.addEventListener("click", () => {
         document.body.classList.add("dark-mode");
         localStorage.setItem("colorMode", "dark-mode");
     }
+});
+
+const joystickBase = document.getElementById("joystick");
+const joystickHandle = document.getElementById("joystick-handle");
+
+// Joystick táctil
+joystickBase.addEventListener("touchstart", (e) => {
+    joystick.active = true;
+    const rect = joystickBase.getBoundingClientRect();
+    const touch = e.touches[0];
+    joystick.baseX = rect.left + rect.width / 2;
+    joystick.baseY = rect.top + rect.height / 2;
+    moveJoystick(touch.clientX, touch.clientY);
+});
+
+joystickBase.addEventListener("touchmove", (e) => {
+    if (!joystick.active) return;
+    const touch = e.touches[0];
+    moveJoystick(touch.clientX, touch.clientY);
+});
+
+joystickBase.addEventListener("touchend", () => {
+    joystick.active = false;
+    joystick.dx = 0;
+    joystick.dy = 0;
+    joystickHandle.style.transform = `translate(0px, 0px)`;
+});
+
+function moveJoystick(x, y) {
+    const dx = x - joystick.baseX;
+    const dy = y - joystick.baseY;
+    const distance = Math.min(Math.hypot(dx, dy), 40);
+    const angle = Math.atan2(dy, dx);
+
+    joystick.dx = Math.cos(angle) * (distance / 40); // Normalizado entre 0 y 1
+    joystick.dy = Math.sin(angle) * (distance / 40);
+
+    joystickHandle.style.transform = `translate(${joystick.dx * 40}px, ${joystick.dy * 40}px)`;
+}
+
+// Botón de disparo táctil
+const mobileFireBtn = document.getElementById("mobileFire");
+
+mobileFireBtn.addEventListener("touchstart", () => {
+    mobileShoot = true;
+});
+mobileFireBtn.addEventListener("touchend", () => {
+    mobileShoot = false;
 });
