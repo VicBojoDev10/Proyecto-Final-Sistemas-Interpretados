@@ -245,4 +245,54 @@ body.dark-mode #startBtn {
 .darkmode-btn:hover {
     background-color: var(--color-hover-light);
 }
+#mobileControls {
+    display: none;
+    position: relative;
+    width: 100%;
+    margin-top: 1em;
+}
 
+#joystick {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--color-text-light);
+    border-radius: 50%;
+    touch-action: none;
+}
+
+#joystick-handle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    transform: translate(0, 0);
+    transition: transform 0.1s;
+}
+
+#mobileFire {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    background-color: var(--color-accent);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+    #mobileControls {
+        display: block;
+        height: 0; /* evitar que desplace elementos */
+    }
+}
