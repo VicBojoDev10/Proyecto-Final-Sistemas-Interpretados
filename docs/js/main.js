@@ -74,9 +74,12 @@ function update() {
 
     // Joystick: aplicar impulso si se mueve
 if (joystick.active) {
-    ship.thrust.x += joystick.dx * 0.2;
-    ship.thrust.y += joystick.dy * 0.2;
+    const angle = Math.atan2(joystick.dy, joystick.dx);
+    ship.angle = angle;
+    ship.thrust.x += Math.cos(angle) * 0.2;
+    ship.thrust.y += Math.sin(angle) * 0.2;
 }
+
 
 
     if (keys["ArrowLeft"]) ship.angle -= 0.05;
