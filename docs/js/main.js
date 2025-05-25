@@ -77,7 +77,7 @@ if (joystick.active) {
     const angle = Math.atan2(joystick.dy, joystick.dx);
     ship.angle = angle;
     ship.thrust.x += Math.cos(angle) * 0.2;
-    ship.thrust.y += Math.sin(angle) * 0.2;
+    ship.thrust.y += Math.sin(angle) * 0.2;  
 }
 
 
