@@ -1,1 +1,2 @@
+Una cosa que se puede hacer para el codigo es el movimiento que en si es en 8 direcciones por lo cual con cambiar el sprite a una nueva posicion ya preestablecida en base a lo que se presione es lo que podria funcionar en lo que es HTML, tambien los sprites se pueden dibujar con lineas ya que son mas sencillos gracias a lo sencillo del juego, en cuanto a los enemigos irlos moviendo para chocar contra el jugador, y para el disparo hacer una linea que se vaya moviendo en linea recta.
 https://chatgpt.com/share/68329c0a-2274-8011-8496-64738d5143a9
